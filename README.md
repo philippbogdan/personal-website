@@ -54,13 +54,19 @@ The homepage links straight to `href`. There is no per-paper page.
 - `astro.config.mjs` — `SITE_URL`, used for canonical URLs, RSS and the sitemap.
 - `public/robots.txt` — the sitemap URL.
 - `src/assets/portrait.png` — the homepage portrait, a 1120px sharpened master
-  cut down from the 3024px `pfp-work-opaque.png` in iCloud. Its background is
-  `#f7f7f7`, the same wash used across the socials, which `--wash` mirrors. Replace the file and keep the
+  cut down from the 3024px `pfp-work-transparent.png` in iCloud. It is a
+  cutout on purpose: the disc behind it is drawn in CSS from `--wash`, so it
+  stays cool and follows light and dark, rather than carrying the warm
+  background baked into the social avatar. Replace the file and keep the
   name; Astro re-encodes it to AVIF/WebP at 1x, 2x and 3x on build. If you swap
   in a new original, downscale it to ~1120px with a sharpening pass first — a
   single 3024 to 560 reduction inside the build comes out soft.
 
 ## Design
+
+Cool neutrals throughout: slate greys with a slight blue cast, no warm tones.
+Every colour is a custom property at the top of `src/styles/global.css`, in a
+light block and a `prefers-color-scheme: dark` block.
 
 The look is "Column" from `design/artboards.html`, which holds the six
 directions that were considered. All of it lives in `src/styles/global.css`;
