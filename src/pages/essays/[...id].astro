@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import { site } from '../../config';
 
@@ -32,6 +33,11 @@ const minutes = Math.max(1, Math.round(words / 220));
       {entry.data.updated && <>{' · updated '}{fullDate(entry.data.updated)}</>}
     </p>
   </header>
+
+  {entry.data.cover && (
+    <Image class="cover" src={entry.data.cover} alt={entry.data.coverAlt ?? ''}
+           widths={[640, 960, 1280]} sizes="(min-width: 40rem) 36rem, 100vw" loading="eager" />
+  )}
 
   <article class="prose">
     <Content />

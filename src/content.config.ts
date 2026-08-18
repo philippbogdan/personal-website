@@ -4,8 +4,11 @@ import { z } from 'astro/zod';
 
 const essays = defineCollection({
   loader: glob({ base: './src/content/essays', pattern: '**/*.{md,mdx}' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
+    // Lead image. Also used as the social preview for this piece.
+    cover: image().optional(),
+    coverAlt: z.string().optional(),
     // One line under the title on the homepage. Optional.
     description: z.string().optional(),
     date: z.coerce.date(),
