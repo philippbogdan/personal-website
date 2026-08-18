@@ -11,8 +11,9 @@ export const site = {
   description: 'Essays and papers by Philipp Bogdan.',
   // Add or remove freely. Leave the list empty to hide the footer links.
   links: [
+    { label: 'X', href: 'https://x.com/philbog' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/philipp-bogdan/' },
     { label: 'GitHub', href: 'https://github.com/philippbogdan' },
-    { label: 'X', href: 'https://x.com/' },
     // { label: 'Email', href: 'mailto:you@example.com' },
   ],
 } as const;
