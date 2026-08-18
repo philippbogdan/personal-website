@@ -4,7 +4,7 @@ export const site = {
   name: 'Philipp Bogdan',
   // Shown under your name on the homepage. One entry per paragraph.
   bio: [
-    'I study Computing (AI and Machine Learning) at Imperial College London.',
+    'I study Computing (AI & ML) at Imperial College London.',
   ],
   // Used for <title>, RSS and social previews.
   description: 'Essays and papers by Philipp Bogdan.',
