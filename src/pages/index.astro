@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { site } from '../config';
+
+const isLive = (e: { data: { draft: boolean } }) => import.meta.env.DEV || !e.data.draft;
+const byDate = (a: { data: { date: Date } }, b: { data: { date: Date } }) =>
+  b.data.date.valueOf() - a.data.date.valueOf();
+
+const essays = (await getCollection('essays')).filter(isLive).sort(byDate);
+const papers = (await getCollection('papers')).filter(isLive).sort(byDate);
+
+const monthYear = (d: Date) =>
+  d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+---
+<Base>
+  <h1 class="name">{site.name}</h1>
+  <div class="bio">
+    {site.bio.map((p) => <p>{p}</p>)}
+  </div>
+
+  {essays.length > 0 && (
+    <section class="section">
+      <span class="label">Essays</span>
+      {essays.map((e) => (
+        <a class="entry" href={`/essays/${e.id}/`}>
+          <span class="entry-title u">{e.data.title}</span>
+          {e.data.description && <div class="entry-desc">{e.data.description}</div>}
+          <div class="entry-meta meta">{monthYear(e.data.date)}</div>
+        </a>
+      ))}
+    </section>
+  )}
+
+  {papers.length > 0 && (
+    <>
+      <hr class="divider" />
+      <section class="section" style="margin-top:0">
+        <span class="label">Papers</span>
+        {papers.map((p) => (
+          <a class="entry" href={p.data.href}>
+            <span class="entry-title u">{p.data.title}</span>
+            {p.data.authors && <div class="entry-desc">{p.data.authors}</div>}
+            <div class="entry-meta meta">
+              {[p.data.venue, p.data.date.getFullYear(), 'PDF'].filter(Boolean).join(' · ')}
+            </div>
+          </a>
+        ))}
+      </section>
+    </>
+  )}
+</Base>

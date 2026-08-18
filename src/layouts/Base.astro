@@ -1,0 +1,48 @@
+---
+import { Font } from 'astro:assets';
+import { site } from '../config';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Show the footer links. On by default. */
+  footer?: boolean;
+}
+
+const { title, description = site.description, footer = true } = Astro.props;
+const pageTitle = title ? `${title} — ${site.name}` : site.name;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <Font cssVariable="--font-serif" preload />
+  </head>
+  <body>
+    <main class="wrap">
+      <slot />
+      {footer && site.links.length > 0 && (
+        <footer class="foot">
+          {site.links.map((l) => (
+            <a href={l.href} rel="me">{l.label}</a>
+          ))}
+          <a href="/rss.xml">RSS</a>
+        </footer>
+      )}
+    </main>
+  </body>
+</html>

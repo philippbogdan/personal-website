@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config';
+---
+<Base title="Not found">
+  <h1 class="essay-title">Not found</h1>
+  <p class="essay-desc" style="margin-top:.6rem">
+    There is nothing at this address.
+    {' '}<a class="u" href="/">Back to {site.name}</a>.
+  </p>
+</Base>
