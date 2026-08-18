@@ -111,11 +111,14 @@ a { color: inherit; text-decoration: none; }
 
 .portrait {
   width: 100%;
+  aspect-ratio: 1;
   height: auto;
   display: block;
-  margin-top: -1.4rem;
-  /* The cutout is square, so the shoulders end on a hard edge. Dissolve it. */
-  mask-image: linear-gradient(to bottom, #000 87%, transparent 100%);
+  object-fit: cover;
+  border-radius: 50%;
+  /* The cutout is transparent, so the disc behind it is what makes the circle. */
+  background: var(--wash);
+  margin-top: -0.5rem;
 }
 
 .name {
