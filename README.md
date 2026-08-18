@@ -53,8 +53,6 @@ The homepage links straight to `href`. There is no per-paper page.
   The bio is placeholder text.
 - `astro.config.mjs` — `SITE_URL`, used for canonical URLs, RSS and the sitemap.
 - `public/robots.txt` — the sitemap URL.
-- `src/content/essays/` — the two essays there are placeholders. Delete them.
-- `src/content/papers/example-paper.md` — a stub, marked `draft: true`.
 
 ## Design
 
