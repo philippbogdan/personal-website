@@ -56,6 +56,7 @@ body {
 ::selection { background: var(--ink); color: var(--bg); }
 
 .wrap { max-width: var(--measure); margin: 0 auto; }
+.wrap.wide { max-width: 46rem; }
 
 /* --- links ---------------------------------------------------- */
 
@@ -101,6 +102,22 @@ a { color: inherit; text-decoration: none; }
 
 /* --- homepage -------------------------------------------------- */
 
+.masthead {
+  display: grid;
+  grid-template-columns: 1fr 17.5rem;
+  gap: 2.75rem;
+  align-items: start;
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: -1.4rem;
+  /* The cutout is square, so the shoulders end on a hard edge. Dissolve it. */
+  mask-image: linear-gradient(to bottom, #000 87%, transparent 100%);
+}
+
 .name {
   font-size: 1.55rem;
   font-weight: 400;
@@ -111,13 +128,13 @@ a { color: inherit; text-decoration: none; }
 .bio p { color: var(--ink); }
 .bio p + p { margin-top: 0.7rem; }
 
-.section { margin-top: 4rem; }
+.section { margin-top: 4rem; max-width: var(--measure); }
 .section > .label { display: block; margin-bottom: 1.6rem; }
 
 .entry { display: block; margin-bottom: 1.9rem; }
 .entry:last-child { margin-bottom: 0; }
 .entry-title { font-size: 1.28rem; line-height: 1.35; display: inline; }
-.entry-desc { font-size: 0.95rem; line-height: 1.55; color: var(--ink-2); margin-top: .2rem; }
+.entry-desc { font-size: 0.95rem; line-height: 1.55; color: var(--ink-2); margin-top: .2rem; max-width: 42ch; }
 .entry-meta { margin-top: .35rem; }
 
 /* --- essay ----------------------------------------------------- */
@@ -242,6 +259,16 @@ a { color: inherit; text-decoration: none; }
 .foot a:hover { color: var(--ink); }
 
 /* --- small screens --------------------------------------------- */
+
+@media (max-width: 50rem) {
+  .masthead { grid-template-columns: 1fr 12rem; gap: 2rem; }
+}
+
+@media (max-width: 38rem) {
+  .masthead { grid-template-columns: 1fr; gap: 1.4rem; }
+  .masthead .portrait-cell { order: -1; }
+  .portrait { width: 9.5rem; margin-top: 0; }
+}
 
 @media (max-width: 34rem) {
   body { padding: 3.5rem 1.35rem 5rem; font-size: 17px; }

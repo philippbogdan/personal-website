@@ -53,6 +53,8 @@ The homepage links straight to `href`. There is no per-paper page.
   The bio is placeholder text.
 - `astro.config.mjs` — `SITE_URL`, used for canonical URLs, RSS and the sitemap.
 - `public/robots.txt` — the sitemap URL.
+- `src/assets/portrait.png` — the homepage portrait. Replace the file and keep
+  the name; Astro re-encodes it to AVIF/WebP at 1x, 2x and 3x on build.
 
 ## Design
 
