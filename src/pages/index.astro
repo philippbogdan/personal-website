@@ -62,7 +62,7 @@ const monthYear = (d: Date) =>
             <span class="entry-title u">{p.data.title}</span>
             {p.data.authors && <div class="entry-desc">{p.data.authors}</div>}
             <div class="entry-meta meta">
-              {[p.data.venue, p.data.date.getFullYear(), 'PDF'].filter(Boolean).join(' · ')}
+              {[p.data.venue, p.data.date.getFullYear(), p.data.href.endsWith('.pdf') && 'PDF'].filter(Boolean).join(' · ')}
             </div>
           </a>
         ))}
