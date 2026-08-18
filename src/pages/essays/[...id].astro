@@ -14,12 +14,6 @@ export const getStaticPaths = (async () => {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-
-const fullDate = (d: Date) =>
-  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-
-const words = entry.body?.trim().split(/\s+/).length ?? 0;
-const minutes = Math.max(1, Math.round(words / 220));
 ---
 <Base title={entry.data.title} description={entry.data.description}>
   {entry.data.cover && (
@@ -35,12 +29,6 @@ const minutes = Math.max(1, Math.round(words / 220));
 
   <header class="essay-head">
     <h1 class="essay-title">{entry.data.title}</h1>
-    {entry.data.description && <p class="essay-desc">{entry.data.description}</p>}
-    <p class="meta">
-      {fullDate(entry.data.date)}
-      {' · '}{minutes} min read
-      {entry.data.updated && <>{' · updated '}{fullDate(entry.data.updated)}</>}
-    </p>
   </header>
 
   <article class="prose">
