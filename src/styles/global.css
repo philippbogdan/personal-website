@@ -154,7 +154,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink);
   margin-bottom: 3.5rem;
 }
-.hero + .back { margin-bottom: 2.5rem; }
+.hero + .back { margin-bottom: 1.5rem; }
 .back:hover { color: var(--ink); }
 
 .essay-head { margin-bottom: 2.6rem; }
@@ -310,18 +310,21 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: auto;
 }
-/* Lead image, flush to the top of the page and full bleed. */
+/* Lead image, flush to the top of the page. Shown whole, not cropped:
+   a tall photograph loses its subject the moment it is banded. */
 .hero {
   position: relative;
-  margin: -6rem calc(50% - 50vw) 2.4rem;
+  margin: -6rem calc(50% - 50vw) 1.05rem;
   width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 .hero-img {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
-  max-height: 62vh;
-  object-fit: cover;
+  max-width: 100vw;
+  max-height: 82vh;
 }
 
 /* Line art is drawn on white. Multiply drops that white into the page. */
