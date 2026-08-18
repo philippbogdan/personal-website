@@ -25,7 +25,9 @@ const minutes = Math.max(1, Math.round(words / 220));
   {entry.data.cover && (
     <div class="hero">
       <Image class="hero-img" src={entry.data.cover} alt={entry.data.coverAlt ?? ''}
-             widths={[960, 1440, 2048]} sizes="100vw" loading="eager" fetchpriority="high" />
+             widths={[1280, 1920, 2560, 3840]} sizes="100vw"
+             format="avif" quality={80}
+             loading="eager" fetchpriority="high" />
     </div>
   )}
 
