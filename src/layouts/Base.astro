@@ -16,7 +16,9 @@ const { title, description = site.description, footer = true, wide = false } = A
 const pageTitle = title ? `${title} — ${site.name}` : site.name;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // One card for the whole site. Absolute URL: scrapers do not resolve relative paths.
-const ogImage = new URL('/og.png', Astro.site).href;
+// Versioned filename: LinkedIn and X cache og:image by URL and will not
+// re-fetch the same path. Bump the number whenever the card changes.
+const ogImage = new URL('/og-v2.png', Astro.site).href;
 ---
 <!doctype html>
 <html lang="en">
