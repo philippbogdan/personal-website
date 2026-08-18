@@ -18,8 +18,8 @@ Let's get a more illustrative example.
 
 ## Comparing Phones
 
-![Nothing Phone 3](../../assets/essays/chasing-proxies/01-nothing-phone.jpg)
-![iPhone 16e](../../assets/essays/chasing-proxies/02-iphone.jpg)
+![Nothing Phone 3](../../assets/essays/chasing-proxies/01-nothing-phone.png)
+![iPhone 16e](../../assets/essays/chasing-proxies/02-iphone.png)
 
 <p class="figcap">Nothing Phone 3 and iPhone 16e</p>
 
@@ -97,7 +97,7 @@ To change the output you change the input. So you look at all the things your wi
 
 It's a long list, and it's not clear what to do. There are two options, really: you either blame the starting point and reselect it (which is random walk) or you make a step of the size you are comfortable with.
 
-![Two paths: quit, or make sense of the complexity and optimise](../../assets/essays/chasing-proxies/04-quit-or-optimise.jpg)
+![Two paths: quit, or make sense of the complexity and optimise](../../assets/essays/chasing-proxies/04-quit-or-optimise.png)
 
 <p class="figcap">Start many times, fail to see progress and quit.<br>Or try to make sense of the complex world and optimise.</p>
 
@@ -139,7 +139,7 @@ What would the perfect taste person do? They would probably know where the best 
 
 *If you had a perfect taste you wouldn't need any iteration because your starting point is already the optimum. Your step 0 is better than step 100 for any human alive.*
 
-![Iteration paths under low taste and perfect taste](../../assets/essays/chasing-proxies/05-iteration-with-taste.jpg)
+![Iteration paths under low taste and perfect taste](../../assets/essays/chasing-proxies/05-iteration-with-taste.png)
 
 <p class="figcap">The difference taste makes when iterating. Notice that with higher taste you:<br>1) Start closer to the optimum<br>2) Make bigger and more confident steps<br>3) Arrive closer to the optimum in the end</p>
 
@@ -181,7 +181,7 @@ Proxies are not bad in themselves. They help massively to navigate the complex w
 
 So for any company usually the goal is to raise the quality of the company. And quality is enough in itself to encompass all the factors that make great companies: the product, team, customer service, timing, investors, etc.
 
-![A proxy straining to stand in for quality](../../assets/essays/chasing-proxies/06-proxy-vs-quality.jpg)
+![A proxy straining to stand in for quality](../../assets/essays/chasing-proxies/06-proxy-vs-quality.png)
 
 <p class="figcap">A proxy struggles to be quality</p>
 

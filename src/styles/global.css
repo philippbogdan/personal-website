@@ -54,6 +54,7 @@ body {
   background: var(--bg);
   padding: 6rem 1.75rem 8rem;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 ::selection { background: var(--ink); color: var(--bg); }
@@ -222,7 +223,7 @@ a { color: inherit; text-decoration: none; }
 .prose figcaption {
   font-family: var(--sans);
   font-size: 0.78rem;
-  color: var(--ink-3);
+  color: var(--ink-2);
   margin-top: .6em;
 }
 
@@ -293,7 +294,7 @@ a { color: inherit; text-decoration: none; }
   margin-top: -1.4em;
   font-size: 0.86em;
   line-height: 1.5;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 .prose p:has(img + img) {
   display: flex;
@@ -308,10 +309,46 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: auto;
 }
-.cover {
+/* Lead image, flush to the top of the page and full bleed. */
+.hero {
+  position: relative;
+  margin: -6rem calc(50% - 50vw) 3.6rem;
+  width: 100vw;
+}
+.hero-img {
+  display: block;
   width: 100%;
   height: auto;
+  max-height: 62vh;
+  object-fit: cover;
+}
+/* A soft scrim, so white sits legibly on a pale photograph. */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 8.5rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+.hero-bar {
+  position: absolute;
+  top: 2.3rem;
+  left: 0;
+  right: 0;
+  padding: 0 1.75rem;
+  z-index: 1;
+}
+.hero-bar > .back {
   display: block;
-  margin: 0 0 2.6rem;
-  border-radius: 2px;
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+.back-over { color: #fff; margin-bottom: 0; }
+.back-over:hover { color: #fff; opacity: 0.78; }
+
+/* Line art is drawn on white. Multiply drops that white into the page. */
+.prose img { mix-blend-mode: multiply; }
+@media (prefers-color-scheme: dark) {
+  .prose img { mix-blend-mode: normal; }
 }

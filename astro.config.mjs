@@ -11,11 +11,11 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: 'Newsreader',
+      name: 'Source Serif 4',
       cssVariable: '--font-serif',
-      weights: ['200 800'],
+      weights: ['200 900'],
       styles: ['normal', 'italic'],
-      fallbacks: ['Iowan Old Style', 'Palatino', 'Georgia', 'serif'],
+      fallbacks: ['Charter', 'Georgia', 'serif'],
     },
   ],
 });
