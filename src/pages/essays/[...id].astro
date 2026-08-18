@@ -3,7 +3,6 @@ import type { GetStaticPaths } from 'astro';
 import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
-import { site } from '../../config';
 
 export const getStaticPaths = (async () => {
   const essays = await getCollection('essays');
@@ -25,7 +24,7 @@ const { Content } = await render(entry);
     </div>
   )}
 
-  <a class="back" href="/">&larr;&nbsp;{site.name}</a>
+  <a class="back" href="/">&larr;&nbsp;Back</a>
 
   <header class="essay-head">
     <h1 class="essay-title">{entry.data.title}</h1>
