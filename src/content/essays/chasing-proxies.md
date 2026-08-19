@@ -4,6 +4,8 @@ description: 'The better your taste, the more likely you are to achieve the goal
 date: 2026-08-17
 cover: ../../assets/essays/chasing-proxies/00-cover.jpg
 coverAlt: 'Sunlight falling through a window onto a tiled floor'
+card: /og/chasing-proxies-v1.jpg
+cardAlt: 'Sunlight falling across a stone floor inlaid with a brass starburst'
 ---
 
 Taste is a skill that lets you understand the delta between the reality and the ideal state better by having a more accurate vision of the ideal state itself. The better your taste, the more likely you are to achieve the goal and the faster you are. A lack of taste is compensated for by creating quality proxies and optimising for them.

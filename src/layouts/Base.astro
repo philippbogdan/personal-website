@@ -10,9 +10,13 @@ interface Props {
   footer?: boolean;
   /** Widen the column, for the homepage masthead. */
   wide?: boolean;
+  /** Social preview for this page. Falls back to the site card. */
+  card?: string;
+  cardAlt?: string;
 }
 
-const { title, description = site.description, footer = true, wide = false } = Astro.props;
+const { title, description = site.description, footer = true, wide = false,
+        card, cardAlt } = Astro.props;
 const pageTitle = title ? `${title} · ${site.name}` : site.name;
 // The share card carries the domain underneath it, so the name in the headline
 // is redundant. Bare title reads cleaner and does not wrap on a narrow card.
@@ -21,7 +25,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 // One card for the whole site. Absolute URL: scrapers do not resolve relative paths.
 // Versioned filename: LinkedIn and X cache og:image by URL and will not
 // re-fetch the same path. Bump the number whenever the card changes.
-const ogImage = new URL('/og-v2.png', Astro.site).href;
+const ogImage = new URL(card ?? '/og-v2.png', Astro.site).href;
+const ogImageAlt = cardAlt ?? `${site.name}. ${site.description}`;
 ---
 <!doctype html>
 <html lang="en">
@@ -42,7 +47,7 @@ const ogImage = new URL('/og-v2.png', Astro.site).href;
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${site.name}. ${site.description}`} />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
     <Font cssVariable="--font-serif" preload />
