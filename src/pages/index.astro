@@ -23,8 +23,9 @@ const monthYear = (d: Date) =>
       <SocialLinks items={site.links} />
     </div>
     <Picture class="portrait" src={portrait} alt={site.name}
-             width={92} densities={[1, 2, 3]} formats={['avif', 'webp']}
-             fallbackFormat="png" quality={95} loading="eager" fetchpriority="high" />
+             widths={[92, 184, 276, 368]} sizes="92px"
+             formats={['avif', 'webp']} fallbackFormat="png" quality={92}
+             loading="eager" fetchpriority="high" />
   </header>
 
   {essays.length > 0 && (
