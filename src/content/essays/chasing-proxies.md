@@ -4,7 +4,7 @@ description: 'The better your taste, the more likely you are to achieve the goal
 date: 2026-08-17
 cover: ../../assets/essays/chasing-proxies/00-cover.jpg
 coverAlt: 'Sunlight falling through a window onto a tiled floor'
-card: /og/chasing-proxies-v4.jpg
+card: /og/chasing-proxies-v5.jpg
 cardAlt: 'Sunlight falling across a stone floor inlaid with a brass starburst'
 ---
 
