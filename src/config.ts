@@ -3,9 +3,8 @@
 export const site = {
   name: 'Philipp Bogdan',
   // Shown under your name on the homepage. One entry per paragraph.
-  bio: [
-    'I study Computing (AI & ML) at Imperial College London.',
-  ],
+  // Empty: every route into the site already says what he studies.
+  bio: [] as string[],
   // Used for <title>, RSS and social previews.
   description: 'Essays and papers by Philipp Bogdan.',
   // Add or remove freely. Leave the list empty to hide the footer links.
