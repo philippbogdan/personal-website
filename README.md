@@ -49,17 +49,17 @@ The homepage links straight to `href`. There is no per-paper page.
 
 ## Things to change before deploying
 
-- `src/config.ts` — your name, the bio paragraphs, and the footer links.
+- `src/config.ts`: your name, the bio paragraphs, and the footer links.
   The bio is placeholder text.
-- `astro.config.mjs` — `SITE_URL`, used for canonical URLs, RSS and the sitemap.
-- `public/robots.txt` — the sitemap URL.
-- `src/assets/portrait.png` — the homepage portrait, a 1120px sharpened master
+- `astro.config.mjs`: `SITE_URL`, used for canonical URLs, RSS and the sitemap.
+- `public/robots.txt`: the sitemap URL.
+- `src/assets/portrait.png`: the homepage portrait, a 1120px sharpened master
   cut down from the 3024px `pfp-work-transparent.png` in iCloud. It is a
   cutout on purpose: the disc behind it is drawn in CSS from `--wash`, so it
   stays cool and follows light and dark, rather than carrying the warm
   background baked into the social avatar. Replace the file and keep the
   name; Astro re-encodes it to AVIF/WebP at 1x, 2x and 3x on build. If you swap
-  in a new original, downscale it to ~1120px with a sharpening pass first — a
+  in a new original, downscale it to ~1120px with a sharpening pass first, because a
   single 3024 to 560 reduction inside the build comes out soft.
 
 ## Design
