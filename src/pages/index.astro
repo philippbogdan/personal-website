@@ -16,7 +16,7 @@ const papers = (await getCollection('papers')).filter(isLive).sort(byDate);
 const monthYear = (d: Date) =>
   d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
 ---
-<Base wide footer={false}>
+<Base footer={false}>
   <header class="masthead">
     <div class="mast-id">
       <h1 class="name">{site.name}</h1>
