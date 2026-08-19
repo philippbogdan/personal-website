@@ -1,9 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 import { site } from '../config';
-import portrait from '../assets/portrait.png';
 
 const isLive = (e: { data: { draft: boolean } }) => import.meta.env.DEV || !e.data.draft;
 const byDate = (a: { data: { date: Date } }, b: { data: { date: Date } }) =>
@@ -15,30 +14,10 @@ const papers = (await getCollection('papers')).filter(isLive).sort(byDate);
 const monthYear = (d: Date) =>
   d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
 ---
-<Base wide>
+<Base wide footer={false}>
   <header class="masthead">
-    <div>
-      <h1 class="name">{site.name}</h1>
-      {site.bio.length > 0 && (
-        <div class="bio">
-          {site.bio.map((p) => <p>{p}</p>)}
-        </div>
-      )}
-    </div>
-    <div class="portrait-cell">
-      <Picture
-        class="portrait"
-        src={portrait}
-        alt={site.name}
-        width={256}
-        densities={[1, 2, 3]}
-        formats={['avif', 'webp']}
-        fallbackFormat="png"
-        quality={95}
-        loading="eager"
-        fetchpriority="high"
-      />
-    </div>
+    <h1 class="name">{site.name}</h1>
+    <SocialLinks items={site.links} />
   </header>
 
   {essays.length > 0 && (
