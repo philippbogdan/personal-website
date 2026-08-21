@@ -334,6 +334,13 @@ body:has(.socials) .divider { margin: 2rem 0; }
   width: 100%;
   height: auto;
 }
+/* The pull above must match the body's top padding, which shrinks on small
+   screens; with the desktop pull the whole hero sat above the viewport on a
+   phone. Lives below the base rule because the shorthand there wins source
+   order. */
+@media (max-width: 34rem) {
+  .hero { margin-top: -3.5rem; }
+}
 
 /* Line art is drawn on white. Multiply drops that white into the page. */
 .prose img { mix-blend-mode: multiply; }
