@@ -353,15 +353,23 @@ body:has(.socials) .divider { margin: 2rem 0; }
 /* The pull above must match the body's top padding (the var set on body at
    this width), so the banner reaches the physical top of the screen and runs
    under the status bar; viewport-fit=cover in the layout makes that real. */
+/* Two renders of the same photograph: the panorama for desktop, a taller
+   frame for the phone band, so the banner shows the scene rather than a
+   third of it. */
+.hero-img-band { display: none; }
 @media (max-width: 34rem) {
   .hero {
     margin-top: calc(-1 * var(--pad-top));
     height: calc(15svh + env(safe-area-inset-top));
   }
-  .hero-img {
+  .hero-img-wide { display: none; }
+  .hero-img-band {
+    display: block;
     height: 100%;
     object-fit: cover;
+    object-position: left center;
   }
+  .hero::before { background-image: var(--hero-bg-band, var(--hero-bg, none)); }
 }
 
 /* Line art is drawn on white. Multiply drops that white into the page. */

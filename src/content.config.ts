@@ -9,6 +9,9 @@ const essays = defineCollection({
     // Lead image, the wide band at the top of the page.
     cover: image().optional(),
     coverAlt: z.string().optional(),
+    // Taller render of the same photograph for the phone banner, whose
+    // 3.9:1 window would show a third of the desktop panorama.
+    coverBand: image().optional(),
     // Social preview, a path under public/og/. Not derived from cover: the
     // hero is a thin band and a 1.91:1 card needs its own crop. Version the
     // filename, since LinkedIn and X cache the card by URL and never re-fetch.
