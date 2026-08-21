@@ -292,7 +292,11 @@ body:has(.socials) .divider { margin: 2rem 0; }
 }
 
 @media (max-width: 34rem) {
-  body { padding: 3.5rem 1.35rem 5rem; font-size: 17px; }
+  body {
+    --pad-top: max(3.5rem, calc(env(safe-area-inset-top) + 2rem));
+    padding: var(--pad-top) 1.35rem 5rem;
+    font-size: 17px;
+  }
   .essay-title { font-size: 1.7rem; }
   .name { font-size: 1.4rem; }
 }
@@ -322,8 +326,9 @@ body:has(.socials) .divider { margin: 2rem 0; }
   width: 100%;
   height: auto;
 }
-/* Lead image, flush to the top of the page. Shown whole, not cropped:
-   a tall photograph loses its subject the moment it is banded. */
+/* Lead image, flush to the top of the page. Whole on desktop; on a phone it
+   becomes a banner instead: a fixed band cropped like a link-preview card,
+   because the whole photograph at phone width is a squeezed sliver. */
 .hero {
   position: relative;
   margin: -6rem calc(50% - 50vw) 1.05rem;
@@ -334,12 +339,29 @@ body:has(.socials) .divider { margin: 2rem 0; }
   width: 100%;
   height: auto;
 }
-/* The pull above must match the body's top padding, which shrinks on small
-   screens; with the desktop pull the whole hero sat above the viewport on a
-   phone. Lives below the base rule because the shorthand there wins source
-   order. */
+/* Rubber-banding past the top reveals the canvas; this paints the same
+   photograph up there so the pull shows the hero continuing, not white. */
+.hero::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  width: 100%;
+  height: 120vh;
+  background: var(--hero-bg, none) center bottom / cover no-repeat;
+}
+/* The pull above must match the body's top padding (the var set on body at
+   this width), so the banner reaches the physical top of the screen and runs
+   under the status bar; viewport-fit=cover in the layout makes that real. */
 @media (max-width: 34rem) {
-  .hero { margin-top: -3.5rem; }
+  .hero {
+    margin-top: calc(-1 * var(--pad-top));
+    height: calc(15svh + env(safe-area-inset-top));
+  }
+  .hero-img {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 /* Line art is drawn on white. Multiply drops that white into the page. */
