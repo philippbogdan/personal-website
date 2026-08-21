@@ -339,17 +339,6 @@ body:has(.socials) .divider { margin: 2rem 0; }
   width: 100%;
   height: auto;
 }
-/* Rubber-banding past the top reveals the canvas; this paints the same
-   photograph up there so the pull shows the hero continuing, not white. */
-.hero::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 100%;
-  width: 100%;
-  height: 120vh;
-  background: var(--hero-bg, none) center bottom / cover no-repeat;
-}
 /* The pull above must match the body's top padding (the var set on body at
    this width), so the banner reaches the physical top of the screen and runs
    under the status bar; viewport-fit=cover in the layout makes that real. */
@@ -365,11 +354,19 @@ body:has(.socials) .divider { margin: 2rem 0; }
   .hero-img-wide { display: none; }
   .hero-img-band {
     display: block;
-    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* 14px of clearance above the screen edge, so rounding in the safe-area
+       maths can never expose a hairline at the top */
+    height: calc(100% + 14px);
     object-fit: cover;
-    object-position: left center;
+    object-position: left bottom;
+    /* the stretch (see the essay template) grows the image upward from its
+       fixed bottom edge during overscroll, cropping the sides */
+    transform-origin: 50% 100%;
   }
-  .hero::before { background-image: var(--hero-bg-band, var(--hero-bg, none)); }
 }
 
 /* Line art is drawn on white. Multiply drops that white into the page. */
